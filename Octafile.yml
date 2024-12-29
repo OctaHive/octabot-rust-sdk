@@ -1,0 +1,23 @@
+version: 1
+
+tasks:
+  build-examples:
+    deps:
+      - build-hello-world
+      - build-logging
+      - build-http
+
+  build-hello-world:
+    cmd: cargo component build
+    dir: ./examples/hello-world
+
+  build-logging:
+    cmd: cargo component build
+    dir: ./examples/logging
+
+  build-http:
+    cmd: cargo component build
+    dir: ./examples/http
+
+  update-wit-deps:
+    cmd: wit-deps update

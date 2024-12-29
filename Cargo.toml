@@ -1,0 +1,43 @@
+[package]
+name = "octabot-rust-sdk"
+version = { workspace = true }
+authors = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+repository = { workspace = true }
+rust-version = { workspace = true }
+homepage = { workspace = true }
+documentation = "https://github.com/OctaHive/octabot-rust-sdk#readme"
+readme = "README.md"
+description = """
+The Octabot Rust SDK makes it easy to build plugins in Rust.
+"""
+
+[lib]
+name = "octabot_rust_sdk"
+
+[dependencies]
+logger = { version = "0.1.0", path = "crates/logger" }
+error = { version = "0.1.0", path = "crates/error" }
+bindings = { version = "0.1.0", path = "crates/bindings" }
+
+[workspace]
+resolver = "2"
+members = [
+  "crates/*",
+  "examples/hello-world",
+  "examples/logging",
+  "examples/http",
+]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Roman Efremenko <roman.efremenko@gmail.com>"]
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/OctaHive/octabot-rust-sdk"
+rust-version = "1.83"
+homepage = "https://github.com/OctaHive/octabot-rust-sdk#readme"
+
+[workspace.dependencies]
+wit-bindgen = "0.36.0"
