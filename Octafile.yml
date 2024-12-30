@@ -6,6 +6,7 @@ tasks:
       - build-hello-world
       - build-logging
       - build-http
+      - build-keyvalue
 
   build-hello-world:
     cmd: cargo component build
@@ -14,6 +15,10 @@ tasks:
   build-logging:
     cmd: cargo component build
     dir: ./examples/logging
+
+  build-keyvalue:
+    cmd: cargo component build
+    dir: ./examples/keyvalue
 
   build-http:
     cmd: cargo component build

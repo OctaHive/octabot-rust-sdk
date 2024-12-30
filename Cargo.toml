@@ -20,12 +20,14 @@ name = "octabot_rust_sdk"
 logger = { version = "0.1.0", path = "crates/logger" }
 error = { version = "0.1.0", path = "crates/error" }
 bindings = { version = "0.1.0", path = "crates/bindings" }
+keyvalue = { version = "0.1.0", path = "crates/keyvalue" }
 
 [workspace]
 resolver = "2"
 members = [
   "crates/*",
   "examples/hello-world",
+  "examples/keyvalue",
   "examples/logging",
   "examples/http",
 ]

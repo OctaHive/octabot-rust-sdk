@@ -1,5 +1,5 @@
 [package]
-name = "logging-example"
+name = "keyvalue-example"
 version = "0.1.0"
 edition = "2021"
 
@@ -18,4 +18,4 @@ panic = "abort"
 strip = "debuginfo"
 
 [package.metadata.component]
-package = "example:logging"
+package = "example:keyvalue"

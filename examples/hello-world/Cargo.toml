@@ -1,5 +1,5 @@
 [package]
-name = "hello-world"
+name = "hello-world-example"
 version = "0.1.0"
 edition = "2021"
 
@@ -15,3 +15,6 @@ opt-level = 3
 codegen-units = 1
 panic = "abort"
 strip = "debuginfo"
+
+[package.metadata.component]
+package = "example:hello-world"
