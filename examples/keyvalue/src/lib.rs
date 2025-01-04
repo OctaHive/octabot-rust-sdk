@@ -1,14 +1,10 @@
 use log::info;
-use octabot_rust_sdk::{wit::export, Action, Error, Metadata, Plugin};
+use octabot_rust_sdk::{wit::export, Error, Metadata, Plugin, PluginResult};
 
 struct KeyValuePlugin;
 
 impl Plugin for KeyValuePlugin {
-  fn init() -> Metadata {
-    octabot_rust_sdk::Logger::install().expect("failed to install octabot_rust_sdk::Logger");
-
-    log::set_max_level(log::LevelFilter::Info);
-
+  fn load() -> Metadata {
     Metadata {
       name: "KeyValue".to_string(),
       version: "0.1.0".to_string(),
@@ -17,7 +13,14 @@ impl Plugin for KeyValuePlugin {
     }
   }
 
-  fn process(_config: String, _payload: String) -> Result<Vec<Action>, Error> {
+  fn init(_config: String) -> Result<(), Error> {
+    octabot_rust_sdk::Logger::install().expect("failed to install octabot_rust_sdk::Logger");
+
+    log::set_max_level(log::LevelFilter::Info);
+    Ok(())
+  }
+
+  fn process(_payload: String) -> Result<Vec<PluginResult>, Error> {
     let keyvalue = octabot_rust_sdk::KeyValue::open();
 
     keyvalue.set("key", b"value").unwrap();

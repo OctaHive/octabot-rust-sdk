@@ -1,9 +1,9 @@
-use octabot_rust_sdk::{wit::export, Action, Error, Metadata, Plugin};
+use octabot_rust_sdk::{wit::export, Error, Metadata, Plugin, PluginResult};
 
 struct HelloWorldPlugin;
 
 impl Plugin for HelloWorldPlugin {
-  fn init() -> Metadata {
+  fn load() -> Metadata {
     Metadata {
       name: "Hello World".to_string(),
       version: "0.1.0".to_string(),
@@ -12,7 +12,11 @@ impl Plugin for HelloWorldPlugin {
     }
   }
 
-  fn process(_config: String, _payload: String) -> Result<Vec<Action>, Error> {
+  fn init(_config: String) -> Result<(), Error> {
+    Ok(())
+  }
+
+  fn process(_payload: String) -> Result<Vec<PluginResult>, Error> {
     println!("Hello, world!");
     Ok(vec![])
   }

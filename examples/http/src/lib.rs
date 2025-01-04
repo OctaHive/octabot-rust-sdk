@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use octabot_rust_sdk::{wit::export, Action, Error, Metadata, Plugin, PluginError};
+use octabot_rust_sdk::{wit::export, Error, Metadata, Plugin, PluginError, PluginResult};
 use serde::{Deserialize, Serialize};
 use url::Url;
 use waki::{Client, Method};
@@ -27,7 +27,7 @@ struct DogResponse {
 }
 
 impl Plugin for HttpPlugin {
-  fn init() -> Metadata {
+  fn load() -> Metadata {
     Metadata {
       name: "Http".to_string(),
       version: "0.1.0".to_string(),
@@ -36,7 +36,11 @@ impl Plugin for HttpPlugin {
     }
   }
 
-  fn process(_config: String, _payload: String) -> Result<Vec<Action>, Error> {
+  fn init(_config: String) -> Result<(), Error> {
+    Ok(())
+  }
+
+  fn process(_payload: String) -> Result<Vec<PluginResult>, Error> {
     let url =
       Url::parse(&format!("https://dogapi.dog/api/v2/breeds")).map_err(|e| PluginError::Other(e.to_string()))?;
 

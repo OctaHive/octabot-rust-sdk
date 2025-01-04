@@ -10,5 +10,5 @@ pub mod wit {
 
 pub use wit::{
   export,
-  exports::octahive::octabot::plugin::{Action, Error, Guest as Plugin, Metadata},
+  exports::octahive::octabot::plugin::{ActionData, Error, Guest as Plugin, Metadata, PluginResult, TaskData},
 };
