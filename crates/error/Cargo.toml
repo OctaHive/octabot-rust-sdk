@@ -10,4 +10,6 @@ homepage.workspace = true
 
 [dependencies]
 bindings = { version = "0.1.0", path = "../bindings" }
+serde = "1.0.217"
+serde_json = "1.0.134"
 thiserror = "2.0.9"

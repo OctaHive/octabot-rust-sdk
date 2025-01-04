@@ -21,6 +21,18 @@ interface plugin {
 
   /// Errors related to interacting with Plugin
   variant error {
+    /// Parse bot config error
+    parse-bot-config(string),
+
+    /// Parse action payload error
+    parse-action-payload(string),
+
+    /// Send http request error
+    send-http-request(string),
+
+    /// Parse http response error
+    parse-response(string),
+
     /// Some other error occurred.
     other(string),
   }
