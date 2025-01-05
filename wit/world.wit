@@ -23,10 +23,20 @@ interface plugin {
     /// Type of task
     kind: string,
 
-    /// Project id
-    project-id: string,
+    /// Project code
+    project-code: string,
 
+    /// External task id
     external-id: string,
+
+    /// External task modified time
+    external-modified-at: u32,
+
+    /// Start task at
+    start-at: u32,
+
+    /// Task options
+    options: string
   }
 
   /// The metadata for a plugin used for registration and setup
@@ -43,6 +53,8 @@ interface plugin {
 
   /// Errors related to interacting with Plugin
   variant error {
+    // TODO: add other errors that make sense
+
     /// Parse bot config error
     parse-bot-config(string),
 
