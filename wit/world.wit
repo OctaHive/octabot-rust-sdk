@@ -73,6 +73,9 @@ interface plugin {
     /// Storage operation error
     storage-operation(string),
 
+    /// Plugin config lock error
+    config-lock(string),
+
     /// Some other error occurred.
     other(string)
   }

@@ -14,6 +14,9 @@ pub enum PluginError {
   #[error("Parse response error: {0}")]
   ParseResponse(String),
 
+  #[error("Plugin config lock error: {0}")]
+  ConfigLock(String),
+
   #[error("Can't open keyvalue storage: {0}")]
   OpenStorage(String),
 
@@ -34,6 +37,7 @@ impl From<PluginError> for WitError {
       PluginError::ParseResponse(e) => WitError::ParseResponse(e.to_string()),
       PluginError::OpenStorage(e) => WitError::OpenStorage(e.to_string()),
       PluginError::StorageOperation(e) => WitError::StorageOperation(e.to_string()),
+      PluginError::ConfigLock(e) => WitError::ConfigLock(e.to_string()),
     }
   }
 }
