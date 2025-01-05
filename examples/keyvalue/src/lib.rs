@@ -21,14 +21,15 @@ impl Plugin for KeyValuePlugin {
   }
 
   fn process(_payload: String) -> Result<Vec<PluginResult>, Error> {
-    let keyvalue = octabot_rust_sdk::KeyValue::open();
+    let keyvalue = octabot_rust_sdk::KeyValue::open()?;
 
-    keyvalue.set("key", b"value").unwrap();
-    let value = keyvalue.get("key").unwrap().unwrap();
+    keyvalue.set("key", b"value")?;
 
-    let res = String::from_utf8_lossy(&value);
+    if let Some(value) = keyvalue.get("key")? {
+      let res = String::from_utf8_lossy(&value);
 
-    info!("{}", res);
+      info!("{}", res);
+    }
 
     Ok(vec![])
   }

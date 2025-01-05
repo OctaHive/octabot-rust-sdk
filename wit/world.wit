@@ -67,6 +67,12 @@ interface plugin {
     /// Parse http response error
     parse-response(string),
 
+    /// Open keyvalue storage error
+    open-storage(string),
+
+    /// Storage operation error
+    storage-operation(string),
+
     /// Some other error occurred.
     other(string)
   }

@@ -14,6 +14,12 @@ pub enum PluginError {
   #[error("Parse response error: {0}")]
   ParseResponse(String),
 
+  #[error("Can't open keyvalue storage: {0}")]
+  OpenStorage(String),
+
+  #[error("Storage operation error: {0}")]
+  StorageOperation(#[from] bindings::wit::wasi::keyvalue::store::Error),
+
   #[error("Unexpected error: {0}")]
   Other(String),
 }
@@ -26,6 +32,8 @@ impl From<PluginError> for WitError {
       PluginError::ParseActionPaylod(e) => WitError::ParseActionPayload(e.to_string()),
       PluginError::SendHttpRequest(e) => WitError::SendHttpRequest(e.to_string()),
       PluginError::ParseResponse(e) => WitError::ParseResponse(e.to_string()),
+      PluginError::OpenStorage(e) => WitError::OpenStorage(e.to_string()),
+      PluginError::StorageOperation(e) => WitError::StorageOperation(e.to_string()),
     }
   }
 }

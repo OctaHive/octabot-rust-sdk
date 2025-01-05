@@ -10,4 +10,5 @@ homepage.workspace = true
 
 [dependencies]
 bindings = { version = "0.1.0", path = "../bindings" }
+error = { version = "0.1.0", path = "../error" }
 wit-bindgen = { workspace = true }
