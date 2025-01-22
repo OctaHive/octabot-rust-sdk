@@ -9,20 +9,20 @@ tasks:
       - build-keyvalue
 
   build-hello-world:
-    cmd: cargo component build
+    shell: cargo component build
     dir: ./examples/hello-world
 
   build-logging:
-    cmd: cargo component build
+    shell: cargo component build
     dir: ./examples/logging
 
   build-keyvalue:
-    cmd: cargo component build
+    shell: cargo component build
     dir: ./examples/keyvalue
 
   build-http:
-    cmd: cargo component build
+    shell: cargo component build
     dir: ./examples/http
 
   update-wit-deps:
-    cmd: wit-deps update
+    shell: wit-deps update

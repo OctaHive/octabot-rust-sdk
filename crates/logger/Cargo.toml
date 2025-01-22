@@ -10,7 +10,7 @@ homepage.workspace = true
 
 [dependencies]
 bindings = { version = "0.1.0", path = "../bindings" }
-log = "0.4.22"
+log = "0.4.25"
 wit-bindgen = { workspace = true }
 
 [features]
