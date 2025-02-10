@@ -1,8 +1,2 @@
 # octabot-rust-sdk
-Octabot SDK for Rust
-
-Install component machinery
-
-```shell
-cargo install cargo-component
-```
+The Octabot Rust SDK makes it easy to build plugins in Rust.
