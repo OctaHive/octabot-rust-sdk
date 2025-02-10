@@ -1,4 +1,4 @@
-use bindings::wit::exports::octahive::octabot::plugin::Error as WitError;
+use crate::bindings::wit::exports::octahive::octabot::plugin::Error as WitError;
 
 #[derive(thiserror::Error, Debug)]
 pub enum PluginError {
@@ -21,7 +21,7 @@ pub enum PluginError {
   OpenStorage(String),
 
   #[error("Storage operation error: {0}")]
-  StorageOperation(#[from] bindings::wit::wasi::keyvalue::store::Error),
+  StorageOperation(#[from] crate::bindings::wit::wasi::keyvalue::store::Error),
 
   #[error("Unexpected error: {0}")]
   Other(String),

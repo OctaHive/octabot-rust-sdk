@@ -1,7 +1,8 @@
+#![allow(unused_imports)]
 pub mod wit {
   wit_bindgen::generate!({
     world: "octahive:octabot/octabot",
-    path: "../../wit",
+    path: "wit",
     pub_export_macro: true,
     export_macro_name: "export",
     generate_all,

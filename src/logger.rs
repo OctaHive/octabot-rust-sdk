@@ -2,7 +2,7 @@ extern crate alloc;
 use core::fmt::Write;
 use log::{Level, Log, Metadata, Record, SetLoggerError};
 
-use bindings::wit::wasi::logging::logging::{log, Level as LoggingLevel};
+use crate::bindings::wit::wasi::logging::logging::{log, Level as LoggingLevel};
 
 pub struct Logger {}
 

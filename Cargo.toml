@@ -17,15 +17,15 @@ The Octabot Rust SDK makes it easy to build plugins in Rust.
 name = "octabot_rust_sdk"
 
 [dependencies]
-logger = { version = "0.1.0", path = "crates/logger" }
-error = { version = "0.1.0", path = "crates/error" }
-bindings = { version = "0.1.0", path = "crates/bindings" }
-keyvalue = { version = "0.1.0", path = "crates/keyvalue" }
+log = "0.4.25"
+serde = "1.0.217"
+serde_json = "1.0.138"
+thiserror = "2.0.11"
+wit-bindgen = { workspace = true }
 
 [workspace]
 resolver = "2"
 members = [
-  "crates/*",
   "examples/hello-world",
   "examples/keyvalue",
   "examples/logging",
@@ -50,3 +50,6 @@ opt-level = 3
 codegen-units = 1
 panic = "abort"
 strip = "debuginfo"
+
+[features]
+kv = ["log/kv"]

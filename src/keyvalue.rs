@@ -1,5 +1,5 @@
-use bindings::wit::wasi::keyvalue::store::{self, Bucket, KeyResponse};
-use error::PluginError;
+use crate::bindings::wit::wasi::keyvalue::store::{self, Bucket, KeyResponse};
+use crate::error::PluginError;
 
 pub struct KeyValue {
   bucket: Bucket,
