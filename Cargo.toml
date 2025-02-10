@@ -38,11 +38,11 @@ authors = ["Roman Efremenko <roman.efremenko@gmail.com>"]
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/OctaHive/octabot-rust-sdk"
-rust-version = "1.83"
+rust-version = "1.84"
 homepage = "https://github.com/OctaHive/octabot-rust-sdk#readme"
 
 [workspace.dependencies]
-wit-bindgen = "0.38.0"
+wit-bindgen = "0.39.0"
 
 [profile.release]
 lto = true
